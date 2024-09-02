@@ -59,7 +59,7 @@ a:hover, a:focus, a:active {
 }
 
 .bg-dark a {
-  color: var(--color-secondary);
+  color: var(--color-light);
 }
 .bg-dark a:hover, .bg-dark a:focus, .bg-dark a:active {
   color: var(--color-accent);

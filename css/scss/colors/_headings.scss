@@ -1,23 +1,68 @@
-h1 {
-    color: var(--color-primary);
-}   
+@include heading-colors (
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-secondary,
+    --color-secondary
+);
 
-h2 {
-    color: var(--color-primary);
-}
+@include theme-headings (
+    'dark',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);
 
-h3 {
-    color: var(--color-secondary);
-}
+@include theme-headings (
+    'primary',
+    --color-light,
+    --color-light,
+    --color-secondary,
+    --color-light,
+    --color-light,
+    --color-secondary
+);
 
-h4 {
-    color: var(--color-primary);
-}
+@include theme-headings (
+    'secondary',
+    --color-primary,
+    --color-primary,
+    --color-gray,
+    --color-primary,
+    --color-primary,
+    --color-gray
+);
 
-h5 {
-    color: var(--color-primary);
-}
+@include theme-headings (
+    'accent',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);
 
-h6 {
-    color: var(--color-secondary);
-}
+@include theme-headings (
+    'gray',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);
+
+@include theme-headings (
+    'light',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-secondary,
+    --color-secondary
+);
