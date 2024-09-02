@@ -13,5 +13,34 @@
     }
     &:hover, &:focus, &:active{
         outline: none !important;
+        
     }
+}
+
+@mixin theme-buttons($bg-color, $btn-dark-colors, $btn-primary-colors, $btn-secondary-colors, $btn-accent-colors, $btn-gray-colors, $btn-light-colors) {
+    .bg-#{$bg-color} {
+        .btn-dark {
+            @include button-colors($btn-dark-colors...);
+        }
+
+        .btn-primary {
+            @include button-colors($btn-primary-colors...);
+        }
+
+        .btn-secondary {
+            @include button-colors($btn-secondary-colors...);
+        }
+
+        .btn-accent {
+            @include button-colors($btn-accent-colors...);
+        }
+
+        .btn-gray {
+            @include button-colors($btn-gray-colors...);
+        }
+
+        .btn-light {
+            @include button-colors($btn-light-colors...);
+        }
+    }    
 }
