@@ -941,7 +941,7 @@ h6 {
 }
 
 .bg-primary h1 {
-  color: var(--color-light);
+  color: var(--color-secondary);
 }
 .bg-primary h2 {
   color: var(--color-light);
