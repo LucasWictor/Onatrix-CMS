@@ -941,7 +941,7 @@ h6 {
 }
 
 .bg-primary h1 {
-  color: var(--color-light);
+  color: var(--color-secondary);
 }
 .bg-primary h2 {
   color: var(--color-light);
@@ -1026,10 +1026,10 @@ h6 {
   color: var(--color-secondary);
 }
 .bg-light h4 {
-  color: var(--color-primary);
+  color: var(--color-secondary);
 }
 .bg-light h5 {
-  color: var(--color-secondary);
+  color: var(--color-light);
 }
 .bg-light h6 {
   color: var(--color-secondary);
