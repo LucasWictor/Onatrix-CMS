@@ -206,6 +206,10 @@ footer {
   padding: 10px;
 }
 
+.topnav .addressinfo {
+ font-size: 13px;
+}
+
 .topnav .social-icons {
   display: flex;
   gap: 0;
@@ -229,6 +233,58 @@ footer {
 .topnav .social-icons a:hover i {
   color: #c0ac94;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.onatrix-logo {
+  display: inline-block;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.phone-list {
+  display: none; 
+}
+
+.list {
+  gap: 50px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.nav-link {
+  margin: 0 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.search {
+  display: inline-block;
+
+}
+
+.search i {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
 
 /* PARTNER/FOOTER */
 #partners-section {
