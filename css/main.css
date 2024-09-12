@@ -286,6 +286,7 @@ footer {
 }
 
 
+/* Hero section */
 #hero-section {
   position: relative;
   height: 60vh; 
@@ -293,6 +294,7 @@ footer {
   align-items: center; 
   justify-content: center; 
   overflow: hidden;
+  z-index: 1; 
 }
 
 #hero-section .hero-bg img {
@@ -305,7 +307,6 @@ footer {
   z-index: 1; 
 }
 
-
 #hero-section .content {
   position: relative;
   z-index: 2; 
@@ -315,7 +316,6 @@ footer {
   align-items: center;
   padding-left: 3rem; 
 }
-
 
 #hero-section .container {
   max-width: 1200px;
@@ -336,6 +336,103 @@ footer {
 #hero-section .text p {
   margin-top: 10px;
   margin-bottom: 15px;
+}
+
+/* About section */
+#about-section {
+  position: relative;
+  height: 60vh; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  overflow: visible; 
+  background-color: #f7f7f7;
+  z-index: 2; 
+}
+
+/* Container for the About section */
+#about-section .container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* About text */
+#about-section .about-text {
+  transform: translateY(-200px); 
+  transform: translateX(-40px); 
+  right: 180px;
+  position: relative;
+  z-index: 2; 
+}
+
+#about-section .about-text h1 {
+  font-size: 40px;
+  max-width: 768px;
+}
+
+#about-section .about-text p {
+  font-weight: 300;
+  word-wrap: break-word;
+  width: 43vw;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-width: 768px;
+}
+
+#about-section .about-text blockquote {
+  font-size: 20px;
+  word-wrap: break-word;
+  width: 35vw;
+  font-style: italic;
+  font-weight: 200;
+  max-width: 768px;
+}
+
+/* Signature styling */
+.signature {
+  align-items: center;
+  margin-top: 10px;
+}
+
+.signature img {
+  margin-right: 15px;
+}
+
+.nametag-container .nametag-title {
+  font-weight: bold;
+}
+
+.callback-box {
+  position: absolute; 
+  top: -180px; 
+  left: 800px;
+  z-index: 3; 
+  width: 400px; 
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form layout */
+.callback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.callback-form input, .callback-form select, .callback-form button {
+  padding: 15px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.callback-form button {
+  cursor: pointer;
 }
 
 
