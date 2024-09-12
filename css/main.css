@@ -261,6 +261,7 @@ footer {
   display: flex;
   justify-content: center;
   flex-grow: 1;
+  margin-right: 100px;
 }
 
 .nav-link {
@@ -284,18 +285,59 @@ footer {
   cursor: pointer;
 }
 
+
 #hero-section {
   position: relative;
-  width: 100%;
+  height: 60vh; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  overflow: hidden;
 }
 
-#hero-section .content {
+#hero-section .hero-bg img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
   position: absolute;
-  top: 30%;
+  top: 0;
   left: 0;
-  transform: translateY(-50%);
-  padding-left: 20px; /* Keeps some padding from the left edge */
+  z-index: 1; 
 }
+
+
+#hero-section .content {
+  position: relative;
+  z-index: 2; 
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-left: 3rem; 
+}
+
+
+#hero-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#hero-section .text {
+  transform: translateY(-100px); 
+  transform: translateX(-40px);
+  position: relative;
+  z-index: 2; 
+}
+
+#hero-section .text h1 {
+  margin-bottom: 15px; 
+}
+
+#hero-section .text p {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
 
 
 
