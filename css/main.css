@@ -408,12 +408,12 @@ footer {
 
 .callback-box {
   position: absolute; 
-  top: -180px; 
-  left: 800px;
+  top: -160px; 
+  left: 700px;
   z-index: 3; 
   width: 400px; 
   background-color: #fff;
-  padding: 20px;
+  
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -427,13 +427,26 @@ footer {
 .callback-form input, .callback-form select, .callback-form button {
   padding: 15px;
   border: 1px solid #ccc;
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
+
 
 .callback-form button {
   cursor: pointer;
 }
+
+.callback-form p {
+  margin-left: 30px;
+}
+
+.blackbox {
+  padding: 35px 20px; 
+  font-size: 30px;
+}
+
 
 
 
