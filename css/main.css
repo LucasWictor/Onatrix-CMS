@@ -449,6 +449,70 @@ footer {
 
 
 
+/* Centering the Title and Subtitle */
+.service-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.service-title span {
+
+}
+
+.service-info h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+ 
+}
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
+  padding: 0 20px;
+  justify-items: center; 
+}
+.service-item {
+  width: 370px;
+  height: 440px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer; 
+}
+
+.services-grid > div {
+  border: 1px solid fff;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.services-grid img {
+  margin-top: 30px;
+
+
+}
+
+.services-grid h4 {
+  font-size: 1.25rem;
+
+  margin-top: 35px;
+}
+
+.services-grid p {
+  font-size: 14px;
+  color: #666;
+  padding-top: 20px;
+}
+
+/* Hover effect */
+.services-grid > div:hover {
+  transform: translateY(-10px);
+}
 
 
 /* PARTNER/FOOTER */
