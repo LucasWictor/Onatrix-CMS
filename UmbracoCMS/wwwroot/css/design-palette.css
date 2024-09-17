@@ -1,0 +1,7 @@
+.design-palette .container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    width: 1920px;
+}
