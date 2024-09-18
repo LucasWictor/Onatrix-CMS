@@ -1,10 +1,27 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
 @{
     var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) 
         ? $"{ViewBag.Title} | Financial solutions for your business" 
         : "Onatrix - Financial solutions for your business";
+   // Get the root content node
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    
+    // Access the settings page (based on the alias)
+    var settingsPage = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage");
+
+    // Access the "officeLocation" property from the settingsPage
+    var officeLocation = settingsPage?.Value<string>("officeLocation") ?? "Location not found";
+
+    // For debugging purposes, you can output the value to see if it's correct
 }
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="sv">
@@ -25,7 +42,7 @@
         <section class="topnav bg-primary">
           <div class="container">
             <div class="addressinfo">
-              Klarabergsviadukten 90, 111 64 Stockholm
+              @officeLocation
             </div>
             <div class="social-icons">
               <a href="#"><i class="fa fa-facebook"></i></a>
@@ -38,7 +55,7 @@
         <section class="navbar">
           <div class="container">
             <a class="onatrix-logo" href="/">
-              <img src="/images/home/OnatrixLogo.png" alt="Onatrix Logotyp" /> 
+              <img src="@Model.Value("siteLogotype")" alt="Onatrix Logotyp" /> 
             </a>
             <nav class="list">
               <a href="#" class="nav-link">About</a>
