@@ -1,7 +1,6 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-    Layout = null;  
     var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) 
         ? $"{ViewBag.Title} | Financial solutions for your business" 
         : "Onatrix - Financial solutions for your business";
@@ -22,12 +21,52 @@
   </head>
 <body>
     <div class="wrapper">
-        <header></header>  
-        <main>
-            @RenderBody()
-        </main>  
-        <footer></footer>
-    </div>
+      <header>
+        <section class="topnav bg-primary">
+          <div class="container">
+            <div class="addressinfo">
+              Klarabergsviadukten 90, 111 64 Stockholm
+            </div>
+            <div class="social-icons">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a> 
+              <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </section>
+        
+        <section class="navbar">
+          <div class="container">
+            <a class="onatrix-logo" href="/">
+              <img src="/images/home/OnatrixLogo.png" alt="Onatrix Logotyp" /> 
+            </a>
+            <nav class="list">
+              <a href="#" class="nav-link">About</a>
+              <a href="#" class="nav-link">Services</a>
+              <a href="#" class="nav-link">Projects</a>
+              <a href="#" class="nav-link">Contact</a>
+            </nav>
+            <div class="search">
+              <i class="fa fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        @RenderBody()
+      </main>
+      
+      <footer class="bg-dark">
+        <div class="container">
+            <p>Onatrix. All Rights Reserved. Credits to
+                <span class="secondary">Themesflat</span>.
+            </p>
+        </div>
+      </footer>
+    </div> 
+
     <script src="/scripts/main.js"></script>  
 </body>
 </html>
+

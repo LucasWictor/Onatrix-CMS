@@ -36,12 +36,31 @@
                 <p>@Model?.Value("aboutText")</p>
 
                 <div class="signature">
-                    <img src="@signatureImage" alt="@Model?.Value("aboutSignatureImageAltText")">
+                    <img src="@signatureImage" alt="@Model?.Value("aboutSignatureImage")">
                     <div class="nametag-container">
                         <p class="nametag-title">@Model?.Value("aboutSignatureText")</p>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="callback-box">
+            <h2 class="blackbox bg-primary">Request a call back</h2>
+            <div class="callback-form">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, mollitia.</p>
+                <form action="#" method="post">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <input type="email" id="email" name="email" placeholder="Email address" required>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                    <select id="service" name="service">
+                        <option value="consulting">Financial consulting</option>
+                        <option value="tax-planning">Tax planning</option>
+                        <option value="investment">Investment strategy</option>
+                    </select>
+                    <button type="submit" class="submitform btn-accent">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
+
