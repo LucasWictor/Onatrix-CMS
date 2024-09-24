@@ -22,6 +22,13 @@
 
     // Get the URL of the logotype if available, or fallback to a default image
     var siteLogotypeUrl = siteLogotypeMedia != null ? siteLogotypeMedia.Url() : "/"; 
+   // footer partner logos
+    var partnerLogo1 = Model?.Value<IPublishedContent>("partnerLogo1")?.Url();
+    var partnerLogo2 = Model?.Value<IPublishedContent>("partnerLogo2")?.Url();
+    var partnerLogo3 = Model?.Value<IPublishedContent>("partnerLogo3")?.Url();
+    var partnerLogo4 = Model?.Value<IPublishedContent>("partnerLogo4")?.Url();
+    var partnerLogo5 = Model?.Value<IPublishedContent>("partnerLogo5")?.Url();
+    var partnerLogo6 = Model?.Value<IPublishedContent>("partnerLogo6")?.Url();
 }
 
 <!DOCTYPE html>
@@ -74,6 +81,49 @@
       <main>
         @RenderBody()
       </main>
+
+      <section id="partners-section">
+    <div class="container">
+        <div class="partners-content bg-light">
+            @if (!string.IsNullOrEmpty(partnerLogo1))
+            {
+                <div class="partner-logo">
+                    <img src="@partnerLogo1" alt="Partner 1 Logo">
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(partnerLogo2))
+            {
+                <div class="partner-logo">
+                    <img src="@partnerLogo2" alt="Partner 2 Logo">
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(partnerLogo3))
+            {
+                <div class="partner-logo">
+                    <img src="@partnerLogo3" alt="Partner 3 Logo">
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(partnerLogo4))
+            {
+                <div class="partner-logo">
+                    <img src="@partnerLogo4" alt="Partner 4 Logo">
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(partnerLogo5))
+            {
+                <div class="partner-logo">
+                    <img src="@partnerLogo5" alt="Partner 5 Logo">
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(partnerLogo6))
+            {
+                <div class="partner-logo">
+                    <img src="@partnerLogo6" alt="Partner 6 Logo">
+                </div>
+            }
+        </div>
+    </div>
+</section>
       
       <footer class="bg-dark">
         <div class="container">
