@@ -7,6 +7,21 @@
 
     var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
     var signatureImage = Model?.Value<IPublishedContent>("aboutSignatureImage")?.Url() ?? "";
+    var servicesSectionTitle = Model?.Value<string>("servicesSectionTitle");
+    var servicesSectionInfo = Model?.Value<string>("servicesSectionInfo");
+    var servicesTitle = Model?.Value<string>("servicesTitle"); 
+    var servicesSubtitle = Model?.Value<string>("servicesSubtitle"); 
+
+ var services = new List<dynamic>
+    {
+        new { Title = Model?.Value<string>("service1Title"), Image = Model?.Value<IPublishedContent>("service1Image")?.Url(), Description = Model?.Value<string>("service1Description") },
+        new { Title = Model?.Value<string>("service2Title"), Image = Model?.Value<IPublishedContent>("service2Image")?.Url(), Description = Model?.Value<string>("service2Description") },
+        new { Title = Model?.Value<string>("service3Title"), Image = Model?.Value<IPublishedContent>("service3Image")?.Url(), Description = Model?.Value<string>("service3Description") },
+        new { Title = Model?.Value<string>("service4Title"), Image = Model?.Value<IPublishedContent>("service4Image")?.Url(), Description = Model?.Value<string>("service4Description") },
+        new { Title = Model?.Value<string>("service5Title"), Image = Model?.Value<IPublishedContent>("service5Image")?.Url(), Description = Model?.Value<string>("service5Description") },
+        new { Title = Model?.Value<string>("service6Title"), Image = Model?.Value<IPublishedContent>("service6Image")?.Url(), Description = Model?.Value<string>("service6Description") }
+    };
+
 }
 
 <section id="hero-section">
@@ -64,3 +79,37 @@
     </div>
 </section>
 
+
+<section id="services-section" class="bg-gray">
+    <div class="container">
+
+        <!-- Display the main services title and subtitle -->
+        <div class="service-header">
+            <h2 class="services-main-title">@servicesTitle</h2> <!-- Main title for the entire services section -->
+            <h4 class="services-subtitle">@servicesSubtitle</h4> <!-- Subtitle for the entire services section -->
+        </div>
+
+        <!-- Sub-heading and additional info for services -->
+        <div class="service-info">
+            <h6 class="service-title"><span>@servicesSectionTitle</span></h6> <!-- Sub-heading of the services section -->
+            <div>
+                <p>@Html.Raw(servicesSectionInfo)</p> <!-- Additional info for the services section -->
+            </div>
+        </div>
+
+        <!-- Services grid where each service will be displayed -->
+        <div class="services-grid">
+            @foreach (var service in services)
+            {
+                if (!string.IsNullOrEmpty(service.Title) && !string.IsNullOrEmpty(service.Image))
+                {
+                    <div class="service-item">
+                        <h4>@service.Title</h4> <!-- Service title -->
+                        <img src="@service.Image" alt="@service.Title" /> <!-- Service image -->
+                        <p>@Html.Raw(service.Description)</p> <!-- Service description (rich text) -->
+                    </div>
+                }
+            }
+        </div>
+    </div> <!-- End of container -->
+</section>
