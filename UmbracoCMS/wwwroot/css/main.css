@@ -330,12 +330,16 @@ footer {
 }
 
 #hero-section .text h1 {
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
+  max-width: 550px; 
+  word-wrap: break-word;
 }
 
 #hero-section .text p {
   margin-top: 10px;
   margin-bottom: 15px;
+  max-width: 570px; 
+  word-wrap: break-word;
 }
 
 /* About section */
@@ -466,6 +470,10 @@ footer {
 }
 
 /* Services */
+#services-section {
+  padding-bottom: 100px;
+
+}
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
@@ -492,8 +500,6 @@ footer {
 
 .services-grid img {
   margin-top: 30px;
-
-
 }
 
 .services-grid h4 {
@@ -534,4 +540,67 @@ footer {
 .partner-logo img {
   width: 100%;
   height: auto;
+}
+
+/* story section  */
+#story-section {
+  margin-top: 100px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  min-height: 80vh; 
+}
+
+#story-section .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+#story-section .story-content {
+  text-align: center; 
+  width: 100%;
+}
+
+#story-section .story-header {
+  margin-bottom: 20px; 
+}
+
+#story-section .story-header h2 {
+  text-align: center; 
+  font-size: 2.5em;
+  margin: 0;
+}
+
+#story-section .story-paragraph {
+  text-align: center; 
+  margin: 20px 0;
+  font-size: 2.5em;
+}
+
+#story-section .story-footer {
+  margin-top: 20px;
+}
+
+#story-section .story-footer a {
+  display: inline-block;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+#story-section .story-image {
+  margin-top: auto; 
+  width: 100%;
+  text-align: center; 
+}
+
+#story-section .story-image img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
 }
