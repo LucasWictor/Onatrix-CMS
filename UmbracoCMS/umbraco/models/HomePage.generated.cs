@@ -352,5 +352,37 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("servicesTitle")]
 		public virtual string ServicesTitle => this.Value<string>(_publishedValueFallback, "servicesTitle");
+
+		///<summary>
+		/// StoryButton
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("storyButton")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> StoryButton => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(_publishedValueFallback, "storyButton");
+
+		///<summary>
+		/// StoryHeadline
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("storyHeadline")]
+		public virtual string StoryHeadline => this.Value<string>(_publishedValueFallback, "storyHeadline");
+
+		///<summary>
+		/// StoryImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("storyImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops StoryImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "storyImage");
+
+		///<summary>
+		/// StoryParagraph
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("storyParagraph")]
+		public virtual string StoryParagraph => this.Value<string>(_publishedValueFallback, "storyParagraph");
 	}
 }
