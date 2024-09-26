@@ -1020,7 +1020,7 @@ h6 {
   color: var(--color-primary);
 }
 .bg-light h2 {
-  color: var(--color-accent);
+  color: var(--color-primary);
 }
 .bg-light h3 {
   color: var(--color-secondary);
