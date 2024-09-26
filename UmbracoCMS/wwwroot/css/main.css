@@ -604,3 +604,65 @@ footer {
   height: auto;
   display: inline-block;
 }
+/* Main container for the success section */
+.success-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+.success-info {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 40px; 
+    text-align: center; 
+    margin-top: 50px;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
+    max-width: 1200px; 
+    gap: 20px; 
+}
+
+.stat-item {
+    flex: 1; 
+    padding: 10px;
+}
+
+.stat-left {
+    text-align: left; 
+}
+
+.stat-center {
+    text-align: center; 
+}
+
+.stat-right {
+    text-align: right; 
+}
+
+.success-image {
+    position: absolute; 
+    bottom: -200px;
+    text-align: center;
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+}
+
+.success-image img {
+   max-width: 970px;
+    height: 544px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

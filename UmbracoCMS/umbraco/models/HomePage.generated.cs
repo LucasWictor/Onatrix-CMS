@@ -98,6 +98,14 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string AboutText => this.Value<string>(_publishedValueFallback, "aboutText");
 
 		///<summary>
+		/// dotmapImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("dotmapImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops DotmapImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "dotmapImage");
+
+		///<summary>
 		/// hero - Background Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
@@ -354,6 +362,54 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string ServicesTitle => this.Value<string>(_publishedValueFallback, "servicesTitle");
 
 		///<summary>
+		/// statDescription1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statDescription1")]
+		public virtual string StatDescription1 => this.Value<string>(_publishedValueFallback, "statDescription1");
+
+		///<summary>
+		/// statDescription2
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statDescription2")]
+		public virtual string StatDescription2 => this.Value<string>(_publishedValueFallback, "statDescription2");
+
+		///<summary>
+		/// statDescription3
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statDescription3")]
+		public virtual string StatDescription3 => this.Value<string>(_publishedValueFallback, "statDescription3");
+
+		///<summary>
+		/// statNumber1
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statNumber1")]
+		public virtual string StatNumber1 => this.Value<string>(_publishedValueFallback, "statNumber1");
+
+		///<summary>
+		/// statNumber2
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statNumber2")]
+		public virtual string StatNumber2 => this.Value<string>(_publishedValueFallback, "statNumber2");
+
+		///<summary>
+		/// statNumber3
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("statNumber3")]
+		public virtual string StatNumber3 => this.Value<string>(_publishedValueFallback, "statNumber3");
+
+		///<summary>
 		/// StoryButton
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
@@ -384,5 +440,29 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("storyParagraph")]
 		public virtual string StoryParagraph => this.Value<string>(_publishedValueFallback, "storyParagraph");
+
+		///<summary>
+		/// successImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("successImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops SuccessImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "successImage");
+
+		///<summary>
+		/// successSubheading
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("successSubheading")]
+		public virtual string SuccessSubheading => this.Value<string>(_publishedValueFallback, "successSubheading");
+
+		///<summary>
+		/// successTitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("successTitle")]
+		public virtual string SuccessTitle => this.Value<string>(_publishedValueFallback, "successTitle");
 	}
 }
