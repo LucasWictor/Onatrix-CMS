@@ -1,5 +1,6 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models;
 
 @{
     Layout = "mainLayout.cshtml";
@@ -83,33 +84,77 @@
 <section id="services-section" class="bg-gray">
     <div class="container">
 
-        <!-- Display the main services title and subtitle -->
         <div class="service-header">
-            <h2 class="services-main-title">@servicesTitle</h2> <!-- Main title for the entire services section -->
-            <h4 class="services-subtitle">@servicesSubtitle</h4> <!-- Subtitle for the entire services section -->
+            <h2 class="services-main-title">@servicesTitle</h2> 
+            <h4 class="services-subtitle">@servicesSubtitle</h4> 
         </div>
 
-        <!-- Sub-heading and additional info for services -->
+        
         <div class="service-info">
-            <h6 class="service-title"><span>@servicesSectionTitle</span></h6> <!-- Sub-heading of the services section -->
+            <h6 class="service-title"><span>@servicesSectionTitle</span></h6>
             <div>
-                <p>@Html.Raw(servicesSectionInfo)</p> <!-- Additional info for the services section -->
+                <p>@Html.Raw(servicesSectionInfo)</p> 
             </div>
         </div>
-
-        <!-- Services grid where each service will be displayed -->
         <div class="services-grid">
             @foreach (var service in services)
             {
                 if (!string.IsNullOrEmpty(service.Title) && !string.IsNullOrEmpty(service.Image))
                 {
                     <div class="service-item">
-                        <h4>@service.Title</h4> <!-- Service title -->
-                        <img src="@service.Image" alt="@service.Title" /> <!-- Service image -->
-                        <p>@Html.Raw(service.Description)</p> <!-- Service description (rich text) -->
+                        <h4>@service.Title</h4> 
+                        <img src="@service.Image" alt="@service.Title" /> 
+                        <p>@Html.Raw(service.Description)</p> 
                     </div>
                 }
             }
         </div>
-    </div> <!-- End of container -->
+    </div> 
+</section>
+<section id="story-section" class="bg-light">
+    <div class="container">
+        <div class="story-content">
+            <!-- DOT MAP NEEDED! -->
+            <header class="story-header">
+                <h2>@Model.Value("storyHeadline")</h1>
+            </header>
+            <h3 class="story-paragraph">
+                @Model.Value("storyParagraph")
+            </h3>
+            <div class="story-footer">
+                @if (Model.Value<IEnumerable<Link>>("storyButtonUrl") != null)
+                {
+                    var buttonLink = Model.Value<IEnumerable<Link>>("storyButtonUrl").FirstOrDefault();
+                    if (buttonLink != null)
+                    {
+                        <a href="@buttonLink.Url" class="btn-primary">
+                            @buttonLink.Name
+                        </a>
+                    }
+                }
+                else
+                {
+                    <a href="https://localhost:44305/" class="btn-primary">
+                        Read our Story
+                    </a>
+                }
+            </div>
+
+            <div class="story-image">
+                @if (Model.Value<IPublishedContent>("storyImage") != null)
+                {
+                    var storyImage = Model.Value<IPublishedContent>("storyImage");
+                    <img src="@storyImage.Url()" alt="Story Image" />
+                }
+                else
+                {
+                    <img src="/images/home/trustedimg.svg" alt="Story Image" />
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </div>
 </section>
