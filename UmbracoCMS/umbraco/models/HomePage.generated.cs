@@ -202,6 +202,30 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops PartnerLogo6 => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "partnerLogo6");
 
 		///<summary>
+		/// ProjectHeadline
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("projectHeadline")]
+		public virtual string ProjectHeadline => this.Value<string>(_publishedValueFallback, "projectHeadline");
+
+		///<summary>
+		/// projectlist
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("projectlist")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Projectlist => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "projectlist");
+
+		///<summary>
+		/// ProjectSubheadline
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("projectSubheadline")]
+		public virtual string ProjectSubheadline => this.Value<string>(_publishedValueFallback, "projectSubheadline");
+
+		///<summary>
 		/// service1Description: Description for the first service. 
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
