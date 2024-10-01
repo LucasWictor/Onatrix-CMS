@@ -157,27 +157,25 @@
 
 <section class="success-story bg-primary">
     <div class="container success-container">
-        <!-- Title and Subheading at the top center -->
         <div class="success-info">
             <h6 class="success-title">@Model.Value("successTitle")</h6>
             <h2 class="success-subheading">@Model.Value("successSubheading")</h2>
         </div>
 
-        <!-- Stats in the middle -->
         <div class="stats">
-            <!-- Stat 1 (Left) -->
+            <!-- Stat 1  -->
             <div class="stat-item stat-left">
                 <h1>@Model.Value("statNumber1")</h1>
                 <h5>@Model.Value("statDescription1")</h5>
             </div>
 
-            <!-- Stat 2 (Middle) -->
+            <!-- Stat 2 -->
             <div class="stat-item stat-center">
                 <h1>@Model.Value("statNumber2")</h1>
                 <h5>@Model.Value("statDescription2")</h5>
             </div>
 
-            <!-- Stat 3 (Right) -->
+            <!-- Stat 3 -->
             <div class="stat-item stat-right">
                 <h1>@Model.Value("statNumber3")</h1>
                 <h5>@Model.Value("statDescription3")</h5>
@@ -198,8 +196,42 @@
         </div>
     </div>
 </section>
+<section class="recent-projects bg-light">
+    <div class="container">
+        <header class="projects-header">
+            <h6 class="projects-subheadline">@Model.Value("ProjectSubheadline")</h6>
+            <h2 class="projects-headline">@Model.Value("ProjectHeadline")</h2>
+        </header>
 
+        <div class="projects-grid">
+            @foreach (var project in Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("projectlist"))
+            {
+                var projectTitle = project.Content.Value<string>("projectTitle");
+                var projectDescription = project.Content.Value<string>("projectDescription");
+                var projectImageUrl = "";
+                var projectImage = project.Content.Value<IPublishedContent>("projectImage");
+                if (projectImage != null)
+                {
+                    projectImageUrl = projectImage.Url();
+                }
 
+                <div class="project-item">
+                    <div class="project-image">
+                        @if (!string.IsNullOrEmpty(projectImageUrl))
+                        {
+                            <img src="@projectImageUrl" alt="@projectTitle" />
+                        }
+                    </div>
+
+                    <div class="project-details">
+                        <h5>@projectTitle</h5>
+                        <p class="project-description">@projectDescription</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
 
     </div>
 </section>
