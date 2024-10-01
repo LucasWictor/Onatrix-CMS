@@ -453,8 +453,6 @@ footer {
 }
 
 
-
-/* Centering the Title and Subtitle */
 .service-header {
   text-align: center;
   margin-bottom: 40px;
@@ -603,7 +601,7 @@ footer {
   height: auto;
   display: inline-block;
 }
-/* Main container for the success section */
+
 .success-container {
     display: flex;
     flex-direction: column;
@@ -639,17 +637,11 @@ footer {
     padding: 10px;
 }
 
-.stat-left {
-    text-align: left; 
-}
 
 .stat-center {
     text-align: center; 
 }
 
-.stat-right {
-    text-align: right; 
-}
 
 .success-image {
     position: absolute; 
@@ -661,7 +653,74 @@ footer {
 }
 
 .success-image img {
-   max-width: 970px;
-    height: 544px;
+    max-width: 970px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.recent-projects .container {
+    padding-top: 300px;
+    max-width: 1920px; 
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.projects-header {
+  margin-left: 12em;
+}
+
+.projects-grid {
+    display: flex;
+
+}
+
+.project-item {
+    position: relative;
+    width: 24%; 
+    overflow: hidden;
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(79, 89, 85, 0.5);
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.project-details h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.project-description {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.project-item:hover .project-details {
+    background: rgba(79, 89, 85, 1);
+}
+
+.project-item:hover .project-image {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
