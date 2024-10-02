@@ -1,0 +1,30 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = "mainLayout.cshtml";
+    var image = Model.Value<IPublishedContent>("TextImage");
+    var imageUrl = image != null ? image.Url() : string.Empty; 
+    var name = Model.Value<string>("TextName"); 
+    var quote = Model.Value<string>("TextQuote"); 
+    var description = Model.Value<string>("TextRich"); 
+}
+
+<section class="Aboutpage-section">
+    <div class="Aboutpage-container">
+        <div class="Aboutpage-image">
+            @if (!string.IsNullOrEmpty(imageUrl))
+            {
+                <img src="@imageUrl" alt="@name" />
+                <p class="ceo-title">@name</p>
+            }
+        </div>
+
+        <div class="Aboutpage-text">
+            
+            <blockquote>@quote</blockquote>
+            <div class="about-description">
+                @Html.Raw(description)
+            </div>
+        </div>
+    </div>
+</section>
