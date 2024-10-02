@@ -1,13 +1,37 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Extensions;
+
 @{
     Layout = "mainLayout.cshtml";
+    // Fetching dynamic content for the About section
     var image = Model.Value<IPublishedContent>("TextImage");
     var imageUrl = image != null ? image.Url() : string.Empty; 
     var name = Model.Value<string>("TextName"); 
     var quote = Model.Value<string>("TextQuote"); 
     var description = Model.Value<string>("TextRich"); 
+    var trustedSubtitle = Model.Value<string>("trustedSubtitle") ?? "Great Reviews for Our Services";
+    var trustedTitle = Model.Value<string>("trustedTitle") ?? "Trusted by some <br>Biggest Names";
+    var trustedDescription = Model.Value<string>("trustedDescription") ?? "Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.";
+    var reviewStars = Model.Value<string>("reviewStars") ?? "★★★★★";
+    var reviewerName = Model.Value<string>("reviewerName") ?? "Kevin Gardner";
+    var reviewerCompany = Model.Value<string>("reviewerCompany") ?? "Swebank";
+    
+    var trustedImage = Model.Value<IPublishedContent>("trustedImage") != null 
+        ? Model.Value<IPublishedContent>("trustedImage").Url() 
+        : "/";
 }
+
+
+<header class="Aboutpage-header bg-gray">
+    <div class="container">
+        <h1 class="Aboutpage-title">About Us</h1>
+        <nav class="breadcrumb">
+            <a href="@Url.Content("/")">Home</a> &nbsp;&gt;&nbsp;
+            <span class="breadcrumb-current">About</span>
+        </nav>
+    </div>
+</header>
 
 <section class="Aboutpage-section">
     <div class="Aboutpage-container">
@@ -20,7 +44,6 @@
         </div>
 
         <div class="Aboutpage-text">
-            
             <blockquote>@quote</blockquote>
             <div class="about-description">
                 @Html.Raw(description)
@@ -28,3 +51,39 @@
         </div>
     </div>
 </section>
+
+<section class="trusted-section bg-gray">
+    <div class="container">
+        <div class="trusted-content">
+
+            <div class="trusted-text">
+                <h6 class="trusted-subtitle">
+                    @trustedSubtitle
+                </h6>
+
+                <h2 class="trusted-title">
+                    @Html.Raw(trustedTitle) 
+                </h2>
+
+                <p class="trusted-description">
+                    @trustedDescription
+                </p>
+
+                <div class="trusted-review">
+                    <p>
+                        @reviewStars
+                    </p>
+                    <p>
+                        <strong>@reviewerName</strong><br>
+                        @reviewerCompany
+                    </p>
+                </div>
+            </div>
+            <div class="trusted-image">
+                <img src="@trustedImage" alt="Client Image" />
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -50,12 +50,36 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Page Title
+		/// AboutusTitle
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("pageTitle")]
-		public virtual string PageTitle => this.Value<string>(_publishedValueFallback, "pageTitle");
+		[ImplementPropertyType("aboutusTitle")]
+		public virtual string AboutusTitle => this.Value<string>(_publishedValueFallback, "aboutusTitle");
+
+		///<summary>
+		/// reviewerCompany
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewerCompany")]
+		public virtual string ReviewerCompany => this.Value<string>(_publishedValueFallback, "reviewerCompany");
+
+		///<summary>
+		/// reviewerName
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewerName")]
+		public virtual string ReviewerName => this.Value<string>(_publishedValueFallback, "reviewerName");
+
+		///<summary>
+		/// reviewStars
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("reviewStars")]
+		public virtual string ReviewStars => this.Value<string>(_publishedValueFallback, "reviewStars");
 
 		///<summary>
 		/// TextImage
@@ -88,5 +112,37 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("textRich")]
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString TextRich => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "textRich");
+
+		///<summary>
+		/// trustedDescription
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("trustedDescription")]
+		public virtual string TrustedDescription => this.Value<string>(_publishedValueFallback, "trustedDescription");
+
+		///<summary>
+		/// trustedImage
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("trustedImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops TrustedImage => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "trustedImage");
+
+		///<summary>
+		/// trustedSubtitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("trustedSubtitle")]
+		public virtual string TrustedSubtitle => this.Value<string>(_publishedValueFallback, "trustedSubtitle");
+
+		///<summary>
+		/// trustedTitle
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("trustedTitle")]
+		public virtual string TrustedTitle => this.Value<string>(_publishedValueFallback, "trustedTitle");
 	}
 }
