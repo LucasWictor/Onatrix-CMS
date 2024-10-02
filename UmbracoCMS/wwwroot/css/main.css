@@ -593,7 +593,7 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  min-height: 80vh; 
+  //min-height: 80vh; 
 }
 
 #story-section .container {
@@ -772,6 +772,43 @@ footer {
 }
 
 /* ABOUT US PAGE */
+
+/* HEADER */ 
+.Aboutpage-header {
+   
+    padding: 40px 0; /* Space around the header */
+    text-align: center; /* Center-align the content */
+}
+
+.Aboutpage-header .container {
+    max-width: 1200px; /* Restrict width */
+    margin: 0 auto; /* Center container */
+}
+
+.Aboutpage-title {
+    font-size: 2.5rem; /* Large title font */
+    margin-bottom: 20px; /* Space below the title */
+    color: #333; /* Dark text color */
+}
+
+.breadcrumb {
+    font-size: 1rem; /* Regular font size */
+    color: #555; /* Slightly lighter than title */
+}
+
+.breadcrumb a {
+  color: #4F5955;
+    text-decoration: none; /* Remove underline */
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.breadcrumb-current {
+    color: #D9C3A9; /* Dark color for current page */
+}
+
 .Aboutpage-section {
     padding: 50px 0;
 }
@@ -813,5 +850,87 @@ footer {
     margin-top: 30px;
     padding-top: 10px;
 
+}
+
+.trusted-section {
+    background-color: #f9f9f9;
+}
+
+.trusted-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.trusted-text {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.trusted-subtitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c5a276;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.trusted-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.2;
+     max-width: 350px;
+}
+
+.trusted-description {
+    font-size: 20px;
+    font-style: italic;
+    color: #999999;
+    line-height: 1.6;
+    margin-bottom: 30px;
+   
+}
+
+.trusted-review {
+    font-size: 1rem;
+    color: #333;
+}
+
+.trusted-review strong {
+    font-weight: 600;
+}
+
+.trusted-review span {
+    color: #ffcc00;
+    font-size: 1.5rem;
+}
+
+.trusted-image {
+    width: 50%;
+    padding-left: 20px;
+    text-align: center;
+}
+
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .trusted-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .trusted-text, .trusted-image {
+        width: 100%;
+        padding: 0;
+    }
+
+    .trusted-image {
+        margin-top: 20px;
+    }
 }
 
