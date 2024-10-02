@@ -410,14 +410,25 @@ footer {
   font-weight: bold;
 }
 
+.service-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.service-info h2 {
+  font-size: 2rem;
+  font-weight: 700;
+
+ 
+}
 .callback-box {
-  position: absolute; 
-  top: -160px; 
-  left: 1000px; /*700 */
-  z-index: 3; 
-  width: 400px; 
+  position: absolute;
+  top: -90px;
+  left: 1000px; 
+  z-index: 3;
+  width: 400px;
   background-color: #fff;
-  
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -437,7 +448,6 @@ footer {
   margin-bottom: 20px;
 }
 
-
 .callback-form button {
   cursor: pointer;
 }
@@ -446,25 +456,61 @@ footer {
   margin-left: 30px;
 }
 
+
 .blackbox {
-  padding: 35px 20px; 
+  padding: 35px 20px;
   font-size: 30px;
-  
-}
-
-
-.service-header {
-  text-align: center;
-  margin-bottom: 40px;
 }
 
 
 
-.service-info h2 {
-  font-size: 2rem;
-  font-weight: 700;
+/* For 4K large screens (above 2560px) */
+@media (min-width: 2560px) {
+  .callback-box {
+    left: 65vw; 
+  }
+}
 
- 
+/* For large desktops (1600px to 2560px) */
+@media (max-width: 2560px) and (min-width: 1600px) {
+  .callback-box {
+    left: 65vw; 
+    top: -80px;
+  }
+}
+
+/* For tablets and smaller desktops (768px to 1200px) */
+@media (max-width: 1200px) and (min-width: 768px) {
+  .callback-box {
+    left: calc(100% - 400px); 
+    top: -120px; 
+  }
+
+  .callback-form input, .callback-form select, .callback-form button {
+    width: 85%; 
+    margin-left: 10px;
+  }
+}
+
+/* For small screens (up to 768px) */
+@media (max-width: 768px) {
+  .callback-box {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    padding: 20px;
+    box-shadow: none; 
+  }
+
+  .callback-form input, .callback-form select, .callback-form button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .callback-form p {
+    margin-left: 0;
+  }
 }
 
 /* Services */
@@ -724,3 +770,48 @@ footer {
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
+
+/* ABOUT US PAGE */
+.Aboutpage-section {
+    padding: 50px 0;
+}
+
+.Aboutpage-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto; 
+}
+
+.Aboutpage-image {
+    flex: 1;
+    max-width: 40%;
+}
+
+.Aboutpage-image img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover; 
+    margin-bottom: 20px;
+}
+
+.Aboutpage-text {
+    flex: 2;
+    padding-left: 80px;
+}
+
+.Aboutpage-text blockquote {
+    font-size: 1.5em;
+    font-style: italic; 
+    color: #535656;
+    margin: 20px 0;
+
+}
+
+.Aboutpage-text .about-description {
+    margin-top: 30px;
+    padding-top: 10px;
+
+}
+
