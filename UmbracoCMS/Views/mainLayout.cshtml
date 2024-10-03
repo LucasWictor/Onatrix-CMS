@@ -85,8 +85,9 @@
       <main>
         @RenderBody()
       </main>
+    
+     @if (Model.ContentType.Alias != "aboutUs" && Model.ContentType.Alias != "serviceListPage")
 
-     @if (Model.ContentType.Alias != "aboutUs") 
 {
     <section id="partners-section">
         <div class="container">
