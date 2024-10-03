@@ -1,52 +1,81 @@
-﻿
-@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@{
-	Layout = "mainLayout.cshtml";
-}
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServiceListPage>
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
 
 @{
-	var selection = Umbraco.Content(Guid.Parse("1a2c4ee7-973a-49bb-b980-0057a24a059f"))
-    .ChildrenOfType("serviceItemTemplate")
-    .Where(x => x.IsVisible());
+    Layout = "mainLayout.cshtml";
+
+    // SharedService node by Guid
+    var sharedService = UmbracoHelper.Content(Guid.Parse("07608a44-8229-4c8c-b08b-848df6e49acc"));
+
+    string servicesTitle = null;
+    string servicesSubtitle = null;
+    var pageTitle = Model.Value<string>("pageTitle");
+    List<dynamic> services = new List<dynamic>();
+
+    if (sharedService != null)
+    {
+        servicesTitle = sharedService.Value<string>("servicesTitle");
+        servicesSubtitle = sharedService.Value<string>("servicesSubtitle");
+
+        services = new List<dynamic>
+        {
+            new { Title = sharedService.Value<string>("service1Title"), Image = sharedService.Value<IPublishedContent>("service1Image")?.Url(), Description = sharedService.Value<string>("service1Description") },
+            new { Title = sharedService.Value<string>("service2Title"), Image = sharedService.Value<IPublishedContent>("service2Image")?.Url(), Description = sharedService.Value<string>("service2Description") },
+            new { Title = sharedService.Value<string>("service3Title"), Image = sharedService.Value<IPublishedContent>("service3Image")?.Url(), Description = sharedService.Value<string>("service3Description") },
+            new { Title = sharedService.Value<string>("service4Title"), Image = sharedService.Value<IPublishedContent>("service4Image")?.Url(), Description = sharedService.Value<string>("service4Description") },
+            new { Title = sharedService.Value<string>("service5Title"), Image = sharedService.Value<IPublishedContent>("service5Image")?.Url(), Description = sharedService.Value<string>("service5Description") },
+            new { Title = sharedService.Value<string>("service6Title"), Image = sharedService.Value<IPublishedContent>("service6Image")?.Url(), Description = sharedService.Value<string>("service6Description") }
+        };
+    }
 }
-<ul>
-	@foreach (var item in selection)
-	{
-		<li>
-			<a href="@item.Url()">@item.Name()</a>
-		</li>
-	}
-</ul>
-<<section id="our-services" class="bg-gray">
+
+<header class="Servicepage-header bg-gray">
     <div class="container">
-        @if (!string.IsNullOrEmpty(Model.Value("customHeadline").ToString())) {
+        <!-- Use the pageTitle variable you already fetched earlier -->
+        <h1 class="Servicepage-title">@pageTitle</h1>
+
+        <nav class="breadcrumb">
+            <a href="@Url.Content("/")">Home</a> &nbsp;&gt;&nbsp;
+            <span class="breadcrumb-current">Services</span> <!-- Adjust this text to fit your page -->
+        </nav>
+    </div>
+</header>
+
+<section id="services-section" class="">
+    <div class="container">
+        @if (sharedService != null)
+        {
             <div class="service-header">
-                <h6 class="service-title"><span>@Model.Value("customHeadline")</span></h6>
-                <div class="service-info">
-                </div>
+                <h2 class="services-subtitle">@servicesSubtitle</h2>
+            </div>
+
+            <div class="services-grid">
+                @foreach (var service in services)
+                {
+                    @if (!string.IsNullOrEmpty(service.Title) && !string.IsNullOrEmpty(service.Image))
+                    {
+                        <div class="service-item">
+                            <h4>@service.Title</h4>
+                            <img src="@service.Image" alt="@service.Title" />
+                            <p>@Html.Raw(service.Description)</p>
+                        </div>
+                    }
+                }
             </div>
         }
-
-        <div class="services-grid">
-            @foreach (var item in selection) {
-                var image = item.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
-                var preamble = item?.Value<string>("preamble") ?? "";
-
-                <a href="@item.Url()" class="service-item">
-                    <div class="service-item-content">
-                        <div class="header">
-                            <h4>@item.Name()</h4>
-                        </div>
-                        <div class="body">
-                            <img src="@image" alt="@item.Name()" />
-                        </div>
-                        <div class="footer">
-                            <p>@preamble</p>
-                        </div>
-                    </div>
-                </a>
-            }
-        </div>
+        else
+        {
+            <p>Shared Service data is not available. </p>
+        }
     </div>
 </section>
+
+@{
+    var footerContactBlock = Model.Children.FirstOrDefault(x => x.ContentType.Alias == "footerContactBlock");
+}
+
+@if (footerContactBlock != null)
+{
+    @Html.Partial("FooterContactBlock", footerContactBlock)
+}
+

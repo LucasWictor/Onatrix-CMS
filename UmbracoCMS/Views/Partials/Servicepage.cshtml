@@ -1,0 +1,42 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels; // Ensure you're in the right namespace
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServiceListPage> // Match model type with the main view
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+<section id="services-section" class="bg-gray">
+    <div class="container">
+        <div class="service-header">
+            <h6 class="services-main-title">@Model.ServicesTitle</h6> 
+            <h2 class="services-subtitle">@Model.ServicesSubtitle</h2> 
+        </div>
+
+        <div class="service-info">
+            <h6 class="service-title"><span>@Model.ServicesSectionTitle</span></h6>
+            <div>
+                <p>@Html.Raw(Model.ServicesSectionInfo)</p> 
+            </div>
+        </div>
+
+        <div class="services-grid">
+            @foreach (var service in Model.Services) // Assuming Services is a collection of service items
+            {
+                if (!string.IsNullOrEmpty(service.Title) && !string.IsNullOrEmpty(service.Image))
+                {
+                    <div class="service-item">
+                        <h4>@service.Title</h4> 
+                        <img src="@service.Image" alt="@service.Title" /> 
+                        <p>@Html.Raw(service.Description)</p> 
+                    </div>
+                }
+            }
+        </div>
+    </div> 
+</section>
+
+@{
+    var footerContactBlock = Model.Children.FirstOrDefault(x => x.ContentType.Alias == "footerContactBlock");
+}
+
+@if (footerContactBlock != null)
+{
+    @Html.Partial("FooterContactBlock", footerContactBlock)
+}
