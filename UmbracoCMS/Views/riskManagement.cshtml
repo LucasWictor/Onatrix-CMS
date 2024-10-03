@@ -1,0 +1,90 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models;
+
+@{
+    Layout = "mainLayout.cshtml";
+
+    // Fetch properties from the document type
+    var riskPageTitle = Model?.Value<string>("riskPageTitle");
+    var riskAboutImage = Model?.Value<IPublishedContent>("riskAboutImage")?.Url();
+    var riskAboutText = Model?.Value<string>("riskAboutText");
+    var riskFormText = Model?.Value<string>("riskFormText");
+    var riskMailTitle = Model?.Value<string>("riskMailTitle");
+    var riskMailText = Model?.Value<string>("riskMailText");
+    var riskMail = Model?.Value<string>("riskMail");
+    var riskContent = Model?.Value<string>("riskContent");
+}
+
+<!-- Page Header Section -->
+<header class="risk-header">
+    <div class="container">
+        <!-- Page Title: RiskPageTitle -->
+        <h1 class="risk-title">@riskPageTitle</h1>
+
+        <nav class="risk-breadcrumb">
+            <a href="@Url.Content("/")">Home</a> &nbsp;&gt;&nbsp;
+            <a href="@Url.Content("/services")">Services</a> &nbsp;&gt;&nbsp;
+            <span class="risk-breadcrumb-current">@riskPageTitle</span>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Content Section -->
+<section class="risk-main-content">
+    <div class="container risk-content-layout">
+        <!-- Sidebar Section -->
+        <div class="risk-sidebar">
+            <!-- About Section -->
+            <div class="risk-about-section">
+                <h2 class="risk-about-title">About Us</h2>
+
+                <!-- RiskAboutImage -->
+                @if (!string.IsNullOrEmpty(riskAboutImage))
+                {
+                    <img src="@riskAboutImage" alt="About Us Image" class="risk-about-image" />
+                }
+
+                <!-- RiskAboutText -->
+                @if (!string.IsNullOrEmpty(riskAboutText))
+                {
+                    <p class="risk-about-text">@riskAboutText</p>
+                }
+            </div>
+
+            <!-- Contact Form Section -->
+            <div class="risk-contact-section">
+                <!-- RiskFormText -->
+                @if (!string.IsNullOrEmpty(riskFormText))
+                {
+                    <h3 class="risk-form-title">@riskFormText</h3>
+                }
+
+                <!-- RiskMailText -->
+                @if (!string.IsNullOrEmpty(riskMailText))
+                {
+                    <p class="risk-mail-text">@riskMailText</p>
+                }
+
+                <!-- RiskMail Form -->
+            <div class="email-box-container">
+                <input type="email" id="email" name="email" placeholder="E-mail address  ✉️" class="email-input" />
+            </div>
+            </div>
+            </div>
+
+        <!-- Main Content Column -->
+        <div class="risk-content">
+            <!-- RiskContent -->
+            @if (!string.IsNullOrEmpty(riskContent))
+            {
+                <div class="risk-page-content">
+                    @Html.Raw(riskContent)
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+      
+
