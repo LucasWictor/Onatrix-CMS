@@ -1,0 +1,81 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPublishedContent>
+
+@{
+    // Fetching content from the Umbraco document type fields
+    var footerManImage = Model.Value<IPublishedContent>("footerManImage");
+    var footerBackgroundImage = Model.Value<IPublishedContent>("footerBackgroundImage");
+    var footerTitle = Model.Value<string>("footerTitle");
+    var footerOffice = Model.Value<string>("footerOffice");
+    var footerPhone = Model.Value<string>("footerPhone");
+    var footerEmail = Model.Value<string>("footerEmail");
+    var footerOfficeTitle = Model.Value<string>("footerOfficeTitle");
+    var footerPhoneTitle = Model.Value<string>("footerPhoneTitle");
+    var footerEmailTitle = Model.Value<string>("footerEmailTitle");
+}
+
+<section class="bg-gray">
+    <div class="container">
+        <div class="footer-contact-block">
+            <div class="footer-contact-block-inner">
+
+                @if (footerBackgroundImage != null)
+                {
+                    <div class="footer-background-image">
+                        <img src="@footerBackgroundImage.Url()" alt="Background">
+                    </div>
+                }
+
+                @if (footerManImage != null)
+                {
+                    <div class="footer-man-image">
+                        <img src="@footerManImage.Url()" alt="Man Image">
+                    </div>
+                }
+
+
+                <div class="footer-contact-info">
+                    <h2>@footerTitle</h2>
+                    <div class="contact-row">
+                        @if (!string.IsNullOrEmpty(footerOffice))
+                        {
+                            <div class="contact-label">
+                                <i class="fa-light fa-location-dot" style="color: #d9c3a9;"></i>
+                                <strong>@footerOfficeTitle</strong>
+                            </div>
+                            <div class="contact-info">
+                                @footerOffice
+                            </div>
+                        }
+                    </div>
+
+                    <div class="contact-row">
+                        @if (!string.IsNullOrEmpty(footerPhone))
+                        {
+                            <div class="contact-label">
+                                <i class="fa-light fa-phone" style="color: #d9c3a9;"></i>
+                                <strong>@footerPhoneTitle</strong>
+                            </div>
+                            <div class="contact-info">
+                                @footerPhone
+                            </div>
+                        }
+                    </div>
+
+                    <div class="contact-row">
+                        @if (!string.IsNullOrEmpty(footerEmail))
+                        {
+                            <div class="contact-label">
+                                <i class="fa-light fa-envelope" style="color: #d9c3a9;"></i>
+                                <strong>@footerEmailTitle</strong>
+                            </div>
+                            <div class="contact-info">
+                                @footerEmail
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
