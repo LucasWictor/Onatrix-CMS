@@ -86,48 +86,51 @@
         @RenderBody()
       </main>
 
-      <section id="partners-section">
-    <div class="container">
-        <div class="partners-content bg-light">
-            @if (!string.IsNullOrEmpty(partnerLogo1))
-            {
-                <div class="partner-logo">
-                    <img src="@partnerLogo1" alt="Partner 1 Logo">
-                </div>
-            }
-            @if (!string.IsNullOrEmpty(partnerLogo2))
-            {
-                <div class="partner-logo">
-                    <img src="@partnerLogo2" alt="Partner 2 Logo">
-                </div>
-            }
-            @if (!string.IsNullOrEmpty(partnerLogo3))
-            {
-                <div class="partner-logo">
-                    <img src="@partnerLogo3" alt="Partner 3 Logo">
-                </div>
-            }
-            @if (!string.IsNullOrEmpty(partnerLogo4))
-            {
-                <div class="partner-logo">
-                    <img src="@partnerLogo4" alt="Partner 4 Logo">
-                </div>
-            }
-            @if (!string.IsNullOrEmpty(partnerLogo5))
-            {
-                <div class="partner-logo">
-                    <img src="@partnerLogo5" alt="Partner 5 Logo">
-                </div>
-            }
-            @if (!string.IsNullOrEmpty(partnerLogo6))
-            {
-                <div class="partner-logo">
-                    <img src="@partnerLogo6" alt="Partner 6 Logo">
-                </div>
-            }
+     @if (Model.ContentType.Alias != "aboutUs") 
+{
+    <section id="partners-section">
+        <div class="container">
+            <div class="partners-content bg-light">
+                @if (!string.IsNullOrEmpty(partnerLogo1))
+                {
+                    <div class="partner-logo">
+                        <img src="@partnerLogo1" alt="Partner 1 Logo">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(partnerLogo2))
+                {
+                    <div class="partner-logo">
+                        <img src="@partnerLogo2" alt="Partner 2 Logo">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(partnerLogo3))
+                {
+                    <div class="partner-logo">
+                        <img src="@partnerLogo3" alt="Partner 3 Logo">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(partnerLogo4))
+                {
+                    <div class="partner-logo">
+                        <img src="@partnerLogo4" alt="Partner 4 Logo">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(partnerLogo5))
+                {
+                    <div class="partner-logo">
+                        <img src="@partnerLogo5" alt="Partner 5 Logo">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(partnerLogo6))
+                {
+                    <div class="partner-logo">
+                        <img src="@partnerLogo6" alt="Partner 6 Logo">
+                    </div>
+                }
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+}
       
       <footer class="bg-dark">
         <div class="container">

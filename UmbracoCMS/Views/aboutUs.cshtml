@@ -4,7 +4,6 @@
 
 @{
     Layout = "mainLayout.cshtml";
-    // Fetching dynamic content for the About section
     var image = Model.Value<IPublishedContent>("TextImage");
     var imageUrl = image != null ? image.Url() : string.Empty; 
     var name = Model.Value<string>("TextName"); 
@@ -87,3 +86,66 @@
 </section>
 
 
+
+
+<section class="team-section">
+    <div class="container">
+        <div class="section-header">
+            <h3>Our Experts</h3>
+            <h2>A team of professionals with years of experience</h2>
+        </div>
+        <div class="team-grid team-grid-large">
+            @foreach (var teamMember in Model.Children.Where(x => x.ContentType.Alias == "teamMembersBlock").Take(3)) // Only take the first 3 members
+            {
+                <div class="team-member">
+                    @{
+                        var teamImage = teamMember.Value<IPublishedContent>("teamImage");
+                    }
+                    @if (teamImage != null)
+                    {
+                        <img src="@teamImage.Url()" alt="@teamMember.Value("teamNames")" class="team-member-image" />
+                    }
+                    else
+                    {
+                        <p>No image available for this team member.</p>
+                    }
+                    <div class="team-member-info">
+                        <h4>@teamMember.Value("teamNames")</h4>
+                        <p>@teamMember.Value("teamPosition")</p>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="team-grid team-grid-small">
+            @foreach (var teamMember in Model.Children.Where(x => x.ContentType.Alias == "teamMembersBlock").Skip(3).Take(4)) // Take the next 4 members
+            {
+                <div class="team-member">
+                    @{
+                        var teamImage = teamMember.Value<IPublishedContent>("teamImage");
+                    }
+                    @if (teamImage != null)
+                    {
+                        <img src="@teamImage.Url()" alt="@teamMember.Value("teamNames")" class="team-member-image" />
+                    }
+                    else
+                    {
+                        <p>No image available for this team member.</p>
+                    }
+                    <div class="team-member-info">
+                        <h4>@teamMember.Value("teamNames")</h4>
+                        <p>@teamMember.Value("teamPosition")</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@{
+    var footerContactBlock = Model.Children.FirstOrDefault(x => x.ContentType.Alias == "footerContactBlock");
+}
+
+@if (footerContactBlock != null)
+{
+    @Html.Partial("FooterContactBlock", footerContactBlock)
+}
