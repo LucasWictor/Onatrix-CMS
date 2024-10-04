@@ -1,0 +1,106 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = "mainLayout.cshtml";
+
+
+    var pageTitle = Model.Value<string>("pageTitle");
+    var tags = Model.Value<IEnumerable<string>>("tags");
+    var projectList = Model.Children().Where(x => x.ContentType.Alias == "ourProjectList");
+}
+
+
+<header class="ourproject-header">
+    <div class="container">
+        <h1 class="Servicepage-title">@pageTitle</h1>
+        <nav class="breadcrumb">
+            <a href="@Url.Content("/")">Home</a> &nbsp;&gt;&nbsp;
+            <span class="breadcrumb-current">Projects</span> 
+        </nav>
+    </div>
+</header>
+
+<section id="ourproject-section">
+    <div class="ourproject-container">
+        <div class="ourproject-row">
+            <div class="ourproject-col-left">
+                @if (projectList.Any())
+                {
+                    @foreach (var project in projectList)
+                    {
+                        var projectTitle = project.Value<string>("project1Title");
+                        var projectDate = project.Value<string>("project1Date");
+                        var projectText = project.Value<string>("project1Text");
+                        var projectImage = project.Value<IPublishedContent>("project1Image")?.Url();
+                        var projectReadBtn = project.Value<string>("projectReadbtn");
+
+                        <div class="ourproject-item">
+                            <div class="ourproject-image-wrapper">
+                                @if (!string.IsNullOrEmpty(projectImage))
+                                {
+                                    <img src="@projectImage" alt="@projectTitle" class="ourproject-image"/>
+                                }
+                            </div>
+
+                            <div class="ourproject-content">
+                                <h2 class="ourproject-title">@projectTitle</h2>
+                                <p class="ourproject-date">@projectDate</p>
+                                <p class="ourproject-description">@projectText</p>
+
+                                @if (!string.IsNullOrEmpty(projectReadBtn))
+                                {
+                                    <a href="@project.Url()" class="ourproject-read-btn">
+                                        @projectReadBtn <span class="arrow">→</span>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No projects found.</p>
+                }
+
+                <!-- Fake Pagination (Non-functional) -->
+                <div class="ourproject-pagination">
+                    <span class="ourproject-pagination-prev disabled">Prev</span>
+                    <span class="ourproject-pagination-page active">1</span>
+                    <span class="ourproject-pagination-page">2</span>
+                    <span class="ourproject-pagination-next">Next</span>
+                </div>
+            </div>
+
+            <!-- Sidebar (Right Column) -->
+            <div class="ourproject-col-right">
+                <!-- Tags Section -->
+                <div class="ourproject-tags-section">
+                    <h4>Tags</h4>
+                    <div class="ourproject-tags">
+                        @foreach (var tag in tags)
+                        {
+                            <span class="ourproject-tag">@tag</span>
+                        }
+                    </div>
+                </div>
+
+                <!-- Support Section -->
+                <div class="ourproject-support-section bg-primary">
+                    <h3>How can we help you?</h3>
+                    <p>Online support 24/7, we are here to help you.</p>
+                    <form>
+                        <input type="email" placeholder="Email address" class="ourproject-support-input" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@{
+    var footerContactBlock = Model.Children.FirstOrDefault(x => x.ContentType.Alias == "footerContactBlock");
+}
+
+@if (footerContactBlock != null)
+{
+    @Html.Partial("FooterContactBlock", footerContactBlock)
+}
