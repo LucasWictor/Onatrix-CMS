@@ -97,7 +97,7 @@ a:hover, a:focus, a:active {
   color: var(--color-secondary);
 }
 .bg-light a:hover, .bg-light a:focus, .bg-light a:active {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .btn-dark {
