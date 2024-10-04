@@ -72,6 +72,20 @@
     </div>
 </section>
 
+<div class="risk-contact-form">
+    <h2>Have a question ?</h2>
+    <form>
+        <div class="risk-form-group">
+            <input type="text" id="name" name="name" placeholder="Name" />
+            <input type="email" id="email" name="email" placeholder="Email" />
+        </div>
+        <div class="form-group">
+            <textarea id="question" name="question" placeholder="Question"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+
 @{
     var footerContactBlock = Model.Children.FirstOrDefault(x => x.ContentType.Alias == "footerContactBlock");
 }

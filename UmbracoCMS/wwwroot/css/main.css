@@ -1347,3 +1347,63 @@ footer {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+.risk-contact-form {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.risk-contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #505450;
+}
+
+.risk-form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.risk-form-group input[type="text"],
+.risk-form-group input[type="email"] {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    padding: 25px 80px;
+    background-color: #4F5955;
+    color: #D9C3A9;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.submit-btn:hover {
+    background-color: #d9c3a9;
+    color: #4F5955;
+    
+}
+
