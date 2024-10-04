@@ -1,0 +1,61 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = "mainLayout.cshtml";
+    var projectTitle = Model.Value<string>("pageTitle");
+    var projectContent = Model.Value<string>("ProjectTextEditor"); 
+    var tags = Model.Value<IEnumerable<string>>("tags"); 
+}
+
+<header class="ourproject-header">
+    <div class="container">
+        <h1 class="ourproject-title">@projectTitle</h1>
+          <nav class="risk-breadcrumb">
+            <a href="@Url.Content("/")">Home</a> &nbsp;&gt;&nbsp;
+            <a href="@Url.Content("/services")">Services</a> &nbsp;&gt;&nbsp;
+            <span class="risk-breadcrumb-current">@projectTitle</span>
+        </nav>
+    </div>
+</header>
+
+
+<section id="ourproject-section">
+    <div class="Juvadetail-container">
+        <div class="ourproject-row">
+            <div class="projectdetails-col-left">
+                <div class="projectdetails-content">
+                    @Html.Raw(projectContent) 
+                </div>
+            </div>
+
+            <div class="juvadetail-col-right">
+                <div class="ourproject-tags-section">
+                    <h4>Tags</h4>
+                    <div class="ourproject-tags">
+                        @foreach (var tag in tags)
+                        {
+                            <span class="ourproject-tag">@tag</span>
+                        }
+                    </div>
+                </div>
+
+                <div class="ourproject-support-section bg-primary">
+                    <h3>How can we help you?</h3>
+                    <p>Online support 24/7, we are here to help you.</p>
+                    <form>
+                        <input type="email" placeholder="Email address" class="ourproject-support-input" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@{
+    var footerContactBlock = Model.Children.FirstOrDefault(x => x.ContentType.Alias == "footerContactBlock");
+}
+
+@if (footerContactBlock != null)
+{
+    @Html.Partial("FooterContactBlock", footerContactBlock)
+}
