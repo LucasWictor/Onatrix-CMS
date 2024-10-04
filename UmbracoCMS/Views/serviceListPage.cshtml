@@ -7,6 +7,7 @@
     // SharedService node by Guid
     var sharedService = UmbracoHelper.Content(Guid.Parse("07608a44-8229-4c8c-b08b-848df6e49acc"));
 
+    // Initialize service variables
     string servicesTitle = null;
     string servicesSubtitle = null;
     var pageTitle = Model.Value<string>("pageTitle");
@@ -19,34 +20,35 @@
 
         services = new List<dynamic>
         {
-            new { Title = sharedService.Value<string>("service1Title"), Image = sharedService.Value<IPublishedContent>("service1Image")?.Url(), Description = sharedService.Value<string>("service1Description") },
-            new { Title = sharedService.Value<string>("service2Title"), Image = sharedService.Value<IPublishedContent>("service2Image")?.Url(), Description = sharedService.Value<string>("service2Description") },
-            new { Title = sharedService.Value<string>("service3Title"), Image = sharedService.Value<IPublishedContent>("service3Image")?.Url(), Description = sharedService.Value<string>("service3Description") },
-            new { Title = sharedService.Value<string>("service4Title"), Image = sharedService.Value<IPublishedContent>("service4Image")?.Url(), Description = sharedService.Value<string>("service4Description") },
-            new { Title = sharedService.Value<string>("service5Title"), Image = sharedService.Value<IPublishedContent>("service5Image")?.Url(), Description = sharedService.Value<string>("service5Description") },
-            new { Title = sharedService.Value<string>("service6Title"), Image = sharedService.Value<IPublishedContent>("service6Image")?.Url(), Description = sharedService.Value<string>("service6Description") }
+            new { Title = sharedService.Value<string>("service1Title"), Image = sharedService.Value<IPublishedContent>("service1Image")?.Url(), Description = sharedService.Value<string>("service1Description"), Url = "/juvadetail" },
+            new { Title = sharedService.Value<string>("service2Title"), Image = sharedService.Value<IPublishedContent>("service2Image")?.Url(), Description = sharedService.Value<string>("service2Description"), Url = "/juvadetail" },
+            new { Title = sharedService.Value<string>("service3Title"), Image = sharedService.Value<IPublishedContent>("service3Image")?.Url(), Description = sharedService.Value<string>("service3Description"), Url = "/juvadetail" },
+            new { Title = sharedService.Value<string>("service4Title"), Image = sharedService.Value<IPublishedContent>("service4Image")?.Url(), Description = sharedService.Value<string>("service4Description"), Url = "/juvadetail" },
+            new { Title = sharedService.Value<string>("service5Title"), Image = sharedService.Value<IPublishedContent>("service5Image")?.Url(), Description = sharedService.Value<string>("service5Description"), Url = "/juvadetail" },
+            new { Title = sharedService.Value<string>("service6Title"), Image = sharedService.Value<IPublishedContent>("service6Image")?.Url(), Description = sharedService.Value<string>("service6Description"), Url = "/juvadetail" }
         };
     }
 }
 
+<!-- Header with Breadcrumb -->
 <header class="Servicepage-header bg-gray">
     <div class="container">
-        <!-- Use the pageTitle variable you already fetched earlier -->
         <h1 class="Servicepage-title">@pageTitle</h1>
 
         <nav class="breadcrumb">
             <a href="@Url.Content("/")">Home</a> &nbsp;&gt;&nbsp;
-            <span class="breadcrumb-current">Services</span> <!-- Adjust this text to fit your page -->
+            <span class="breadcrumb-current">Services</span>
         </nav>
     </div>
 </header>
 
+<!-- Services Section -->
 <section id="services-section" class="">
     <div class="container">
         @if (sharedService != null)
         {
             <div class="service-header">
-                <h2 class="services-subtitle">@servicesSubtitle</h2>
+                <h2 class="services-subtitle">@servicesSubtitle</h2> <!-- Fix: use the local variable 'servicesSubtitle' -->
             </div>
 
             <div class="services-grid">
@@ -54,18 +56,21 @@
                 {
                     @if (!string.IsNullOrEmpty(service.Title) && !string.IsNullOrEmpty(service.Image))
                     {
-                        <div class="service-item">
-                            <h4>@service.Title</h4>
-                            <img src="@service.Image" alt="@service.Title" />
-                            <p>@Html.Raw(service.Description)</p>
-                        </div>
+                        <!-- Wrap service item content in a link pointing to the JuvaDetail page -->
+                        <a href="@service.Url" class="service-item-link">
+                            <div class="service-item">
+                                <h4>@service.Title</h4>
+                                <img src="@service.Image" alt="@service.Title" />
+                                <p>@Html.Raw(service.Description)</p>
+                            </div>
+                        </a>
                     }
                 }
             </div>
         }
         else
         {
-            <p>Shared Service data is not available. </p>
+            <p>Shared Service data is not available.</p>
         }
     </div>
 </section>
