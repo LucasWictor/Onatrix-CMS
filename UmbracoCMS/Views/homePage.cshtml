@@ -182,7 +182,6 @@
             </div>
         </div>
 
-        <!-- Success Image floating between containers -->
         <div class="success-image">
             @if (Model.Value<IPublishedContent>("successImage") != null)
             {
@@ -199,8 +198,8 @@
 <section class="recent-projects bg-light">
     <div class="container">
         <header class="projects-header">
-            <h6 class="projects-subheadline">@Model.Value("ProjectSubheadline")</h6>
-            <h2 class="projects-headline">@Model.Value("ProjectHeadline")</h2>
+            <h6 class="projects-subheadline">@Model.Value("ProjectSubheadline")?.ToString()</h6>
+            <h2 class="projects-headline">@Model.Value("ProjectHeadline")?.ToString()</h2>
         </header>
 
         <div class="projects-grid">
@@ -208,12 +207,9 @@
             {
                 var projectTitle = project.Content.Value<string>("projectTitle");
                 var projectDescription = project.Content.Value<string>("projectDescription");
-                var projectImageUrl = "";
                 var projectImage = project.Content.Value<IPublishedContent>("projectImage");
-                if (projectImage != null)
-                {
-                    projectImageUrl = projectImage.Url();
-                }
+                var projectImageUrl = projectImage != null ? projectImage.Url() : "";
+                var juvaDetailUrl = "/juvadetail"; // Link to JuvaDetail page
 
                 <div class="project-item">
                     <div class="project-image">
@@ -226,6 +222,9 @@
                     <div class="project-details">
                         <h5>@projectTitle</h5>
                         <p class="project-description">@projectDescription</p>
+                        <a href="@juvaDetailUrl" class="project-read-btn">
+                            Read More <span class="arrow">→</span>
+                        </a>
                     </div>
                 </div>
             }
@@ -233,5 +232,3 @@
     </div>
 </section>
 
-    </div>
-</section>
